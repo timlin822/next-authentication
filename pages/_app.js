@@ -1,7 +1,20 @@
-import '../styles/globals.css'
+import MessageProvider from 'context/message/MessageProvider'
+import UserProvider from 'context/user/UserProvider'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import Layout from 'components/layout/Layout'
+
+import 'styles/globals.css'
+
+function MyApp({Component,pageProps}){
+  return (
+    <MessageProvider>
+    <UserProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </UserProvider>
+    </MessageProvider>
+  )
 }
 
 export default MyApp
